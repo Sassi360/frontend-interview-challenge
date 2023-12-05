@@ -3,15 +3,15 @@
 ## Ticket Management
 As an admin, I want to:
 
-- Create a ticket
 - Define ticket data structure:
   - Name
   - Description
   - isVIP
   - Count
   - Price
-- Add a ticket
+
 - View a list of tickets
+- Create a ticket
 - Delete a ticket
 
 ## Mock API Service
