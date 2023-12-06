@@ -3,7 +3,7 @@
     <label :for="label" class="block mb-2 text-sm text-gray-700 font-medium ">{{ label }}</label>
     <input
       class="py-3 px-4 block w-full border-grey-200 border rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none"
-      :type="inputType" :value="modelValue" @input="updateValue" :placeholder="placeholder" :id="label" />
+      :type="type" :value="modelValue" @input="updateValue" :placeholder="placeholder" :id="label" />
   </div>
 </template>
 
@@ -18,14 +18,11 @@ export default defineComponent({
     },
     placeholder: String,
     label: String,
-    inputType: {
-      type: String,
-      default: 'text'
-    }
+    type: String
   },
   methods: {
     updateValue(event: Event) {
-      const value = this.inputType === 'number' ? Number((event.target as HTMLInputElement).value) : (event.target as HTMLInputElement).value;
+      const value = this.type === 'number' ? Number((event.target as HTMLInputElement).value) : (event.target as HTMLInputElement).value;
       this.$emit('update:modelValue', value);
     }
   }

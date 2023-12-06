@@ -1,7 +1,7 @@
 <template>
   <form @submit.prevent="addTicket" class="max-w-6xl grid grid-cols-1 sm:grid-cols-2 mx-auto gap-6">
     <div class="space-y-5">
-      <Input v-model="ticket.name" placeholder="Ticket Name" label="Ticket Name" type="text" />
+      <Input v-model="ticket.name" placeholder="Ticket Name" label="Ticket Name" in="text" />
       <Input v-model="ticket.count" placeholder="Ticket Count" label="Number of ticket" type="number" />
       <Input v-model="ticket.price" placeholder="Ticket Price" label="Cost of ticket" type="number" />
     </div>
