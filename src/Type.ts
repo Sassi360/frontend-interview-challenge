@@ -5,4 +5,5 @@ export interface Ticket {
   isVip: boolean;
   count: number;
   price: number;
+  creator: string
 }

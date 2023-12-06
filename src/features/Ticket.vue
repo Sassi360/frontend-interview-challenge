@@ -8,7 +8,7 @@
       <p><strong>Price: </strong> ${{ ticket.price }}</p>
     </div>
     <button @click="deleteTicket"
-      class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent underline-offset-4 hover:underline text-red-600 hover:text-red-700">Delete
+      class="inline-flex items-center text-sm font-semibold underline-offset-4 hover:underline text-red-600 hover:text-red-700">Delete
       Ticket</button>
   </div>
 </template>

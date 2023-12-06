@@ -24,16 +24,18 @@ import Checkbox from '@/components/Checkbox.vue';
 import Input from '@/components/Input.vue';
 import { useTicketsStore } from '@/store/index';
 
-
 const ticketsStore = useTicketsStore();
-const ticket = ref({
+const createNewTicket = () => ({
   id: '',
   name: '',
   description: '',
   isVip: false,
   count: 0,
   price: 0,
+  creator: 'admin'
 });
+
+let ticket = ref(createNewTicket());
 
 const addTicket = () => {
   // Ensure that all fields are filled out
@@ -43,14 +45,7 @@ const addTicket = () => {
   }
 
   ticket.value.id = Date.now().toString();
-  ticketsStore.addTicket({...ticket.value});
-  ticket.value = {
-    id: '',
-    name: '',
-    description: '',
-    isVip: false,
-    count: 0,
-    price: 0,
-  };
+  ticketsStore.addTicket({ ...ticket.value });
+  ticket.value = createNewTicket();
 };
 </script>

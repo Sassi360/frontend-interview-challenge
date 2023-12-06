@@ -1,6 +1,6 @@
 <template>
   <CreateTicket />
-  <ListTicket />
+  <ListTicket :creator="'admin'" />
 </template>
 
 <script lang="ts">
