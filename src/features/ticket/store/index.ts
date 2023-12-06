@@ -4,7 +4,7 @@ import { Ticket as TicketType } from '../Type';
 export const useTicketsStore = defineStore({
   id: 'tickets',
   state: () => ({
-    tickets: [] as TicketType[],
+    cart: [] as TicketType[],
   }),
   persist: true,
   actions: {

@@ -22,8 +22,9 @@
 import Checkbox from '@/components/Checkbox.vue';
 import Input from '@/components/Input.vue';
 import { reactive } from 'vue';
-import { CreateTicketDto } from '../Type';
-import { createTicket } from '../services/TicketService';
+import { createTicket } from '@/services/TicketService';
+import { CreateTicketDto } from '@/Type';
+
 
 let ticket = reactive({} as CreateTicketDto);
 

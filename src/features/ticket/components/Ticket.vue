@@ -14,8 +14,9 @@
 </template>
 
 <script setup lang="ts">
-import { Ticket } from '../Type';
-import { deleteTicket } from '../services/TicketService';
+import { Ticket } from '@/Type';
+import { deleteTicket } from '@/services/TicketService';
+
 
 
 const props = defineProps<{ ticket: Ticket, allowDelete?: boolean }>();

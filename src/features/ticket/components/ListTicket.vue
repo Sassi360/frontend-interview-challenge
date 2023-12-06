@@ -10,8 +10,8 @@
 <script setup lang="ts">
 import { Ticket } from '@/Type';
 import { defineProps, onMounted, ref } from 'vue';
-import { getTickets } from '../services/TicketService';
 import { default as TicketCard } from './Ticket.vue';
+import { getTickets } from '@/services/TicketService';
 
 const loading = ref(true);
 const tickets = ref([] as Ticket[]);
