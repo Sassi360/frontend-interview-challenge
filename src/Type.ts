@@ -1,5 +1,5 @@
 export interface Ticket {
-  id: number;
+  id: string;
   name: string;
   description: string;
   isVip: boolean;
