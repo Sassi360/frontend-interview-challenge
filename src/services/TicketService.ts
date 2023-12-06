@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Ticket } from "./Type";
+import { Ticket } from "../Type";
 
 const baseUrl = 'https://656f7d1e6529ec1c6237f581.mockapi.io/tickets'
 
