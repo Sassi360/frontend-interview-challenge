@@ -1,14 +1,17 @@
 <template>
   <CreateTicket />
+  <ListTicket />
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
 import CreateTicket from '@/features/CreateTicket.vue';
+import ListTicket from '@/features/ListTicket.vue';
+import { defineComponent } from 'vue';
 
 export default defineComponent({
   components: {
     CreateTicket,
+    ListTicket
   }
 })
 </script>
