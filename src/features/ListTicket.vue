@@ -2,23 +2,23 @@
   <div class="mx-auto gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 py-10">
     <div v-if="loading">Loading...</div>
     <div v-else-if="tickets.length === 0 && !loading">No tickets available</div>
-    <Ticket v-else v-for="ticket in filteredTickets" :key="ticket.id" :ticket="ticket" />
+    <TicketCard v-else v-for="ticket in filteredTickets" :key="ticket.id" :ticket="ticket" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { useTicketsStore } from '@/store/index';
+import { Ticket } from '@/Type';
 import { computed, defineProps, onMounted, ref } from 'vue';
-import Ticket from './Ticket.vue';
+import { getTickets } from '../services/TicketService';
+import { default as TicketCard } from './Ticket.vue';
 
-const store = useTicketsStore();
 const loading = ref(true);
+const tickets = ref([] as Ticket[]);
 
-const tickets = computed(() => store.tickets);
 
 onMounted(async () => {
   try {
-    await store.fetchTickets();
+    tickets.value = await getTickets();
   } catch (error) {
     console.error('Failed to fetch tickets:', error);
   } finally {

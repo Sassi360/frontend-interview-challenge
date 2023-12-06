@@ -1,4 +1,3 @@
-import { getTickets } from '@/services/TicketService';
 import { defineStore } from 'pinia';
 import { Ticket as TicketType } from '../Type';
 
@@ -9,9 +8,6 @@ export const useTicketsStore = defineStore({
   }),
   persist: true,
   actions: {
-    async fetchTickets() {
-      this.tickets = await getTickets();
-    },
     addTicket(ticket: TicketType) {
       this.tickets.push(ticket);
     },
