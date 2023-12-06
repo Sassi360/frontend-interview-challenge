@@ -7,7 +7,7 @@
       <p><strong>Count: </strong> {{ ticket.count }}</p>
       <p><strong>Price: </strong> ${{ ticket.price }}</p>
     </div>
-    <button @click="remove"
+    <button v-if="allowDelete" @click="remove"
       class="inline-flex items-center text-sm font-semibold underline-offset-4 hover:underline text-red-600 hover:text-red-700">Delete
       Ticket</button>
   </div>
@@ -18,7 +18,7 @@ import { Ticket } from '../Type';
 import { deleteTicket } from '../services/TicketService';
 
 
-const props = defineProps<{ ticket: Ticket }>();
+const props = defineProps<{ ticket: Ticket, allowDelete?: boolean }>();
 const emit = defineEmits(['remove']);
 
 const remove = async () => {
