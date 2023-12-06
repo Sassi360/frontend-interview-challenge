@@ -23,7 +23,7 @@ export const createTicket = async (ticket: CreateTicketDto) => {
 }
 
 // Delete Ticket
-export const deleteTicket = async (id: number) => {
+export const deleteTicket = async (id: string) => {
   const response = await transport.delete<Ticket>(`/${id}`)
   return response.data;
 }

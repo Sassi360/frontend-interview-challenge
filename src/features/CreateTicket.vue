@@ -25,7 +25,6 @@ import { reactive } from 'vue';
 import { CreateTicketDto } from '../Type';
 import { createTicket } from '../services/TicketService';
 
-
 let ticket = reactive({} as CreateTicketDto);
 
 const addTicket = async (e: Event) => {

@@ -7,7 +7,7 @@
       <p><strong>Count: </strong> {{ ticket.count }}</p>
       <p><strong>Price: </strong> ${{ ticket.price }}</p>
     </div>
-    <button @click="deleteTicket"
+    <button @click="remove"
       class="inline-flex items-center text-sm font-semibold underline-offset-4 hover:underline text-red-600 hover:text-red-700">Delete
       Ticket</button>
   </div>
@@ -15,19 +15,13 @@
 
 <script setup lang="ts">
 import { Ticket } from '../Type';
-import { useTicketsStore } from '@/store/index';
+import { deleteTicket } from '../services/TicketService';
 
-const ticketsStore = useTicketsStore();
 
-const props = defineProps({
-  ticket: {
-    type: Object as () => Ticket,
-    required: true,
-  },
-});
+const props = defineProps<{ ticket: Ticket }>();
 
-const deleteTicket = () => {
+const remove = async () => {
   console.info('Deleting ticket:', props.ticket.name)
-  ticketsStore.deleteTicket(props.ticket.id)
+  await deleteTicket(props.ticket.id)
 };
 </script>
