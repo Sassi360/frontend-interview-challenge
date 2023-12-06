@@ -19,9 +19,11 @@ import { deleteTicket } from '../services/TicketService';
 
 
 const props = defineProps<{ ticket: Ticket }>();
+const emit = defineEmits(['remove']);
 
 const remove = async () => {
   console.info('Deleting ticket:', props.ticket.name)
   await deleteTicket(props.ticket.id)
+  emit("remove")
 };
 </script>
