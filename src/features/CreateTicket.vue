@@ -22,8 +22,10 @@
 import { ref } from 'vue';
 import Checkbox from '@/components/Checkbox.vue';
 import Input from '@/components/Input.vue';
-import { useTicketsStore } from '../store/index';
+import { useTicketsStore } from '@/store/index';
 
+
+const ticketsStore = useTicketsStore();
 const ticket = ref({
   id: '',
   name: '',
@@ -33,8 +35,6 @@ const ticket = ref({
   price: 0,
 });
 
-const ticketsStore = useTicketsStore();
-
 const addTicket = () => {
   // Ensure that all fields are filled out
   if (!ticket.value.name || !ticket.value.description || !ticket.value.count || !ticket.value.price) {
@@ -43,7 +43,7 @@ const addTicket = () => {
   }
 
   ticket.value.id = Date.now().toString();
-  ticketsStore.addTicket(ticket.value);
+  ticketsStore.addTicket({...ticket.value});
   ticket.value = {
     id: '',
     name: '',

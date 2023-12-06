@@ -7,22 +7,24 @@
       <p><strong>Count: </strong> {{ ticket.count }}</p>
       <p><strong>Price: </strong> ${{ ticket.price }}</p>
     </div>
-    <button
+    <button @click="deleteTicket"
       class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-red-600 text-white hover:bg-red-700">Delete
       Ticket</button>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
 import { Ticket } from '../Type';
+import { useTicketsStore } from '@/store/index';
 
-export default defineComponent({
-  props: {
-    ticket: {
-      type: Object as () => Ticket,
-      required: true,
-    },
+const ticketsStore = useTicketsStore();
+
+const props = defineProps({
+  ticket: {
+    type: Object as () => Ticket,
+    required: true,
   },
 });
+
+const deleteTicket = () => ticketsStore.deleteTicket(props.ticket.id);
 </script>
