@@ -4,7 +4,11 @@
   </header>
 
   <div class="max-w-6xl mx-auto px-6 ">
-    <Navigation />
+    <Navigation :links="[
+      { name: 'Home', path: '/' },
+      { name: 'Admin', path: '/admin' },
+      { name: 'Shop', path: '/cart' }
+    ]" />
     <router-view />
   </div>
 </template>
