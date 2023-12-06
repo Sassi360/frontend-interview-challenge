@@ -7,3 +7,5 @@ export interface Ticket {
   price: number;
   creator: string
 }
+
+export type CreateTicketDto = Omit<Ticket,"id">

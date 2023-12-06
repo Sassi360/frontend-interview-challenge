@@ -19,33 +19,24 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
 import Checkbox from '@/components/Checkbox.vue';
 import Input from '@/components/Input.vue';
-import { useTicketsStore } from '@/store/index';
+import { reactive } from 'vue';
+import { CreateTicketDto } from '../Type';
+import { createTicket } from '../services/TicketService';
 
-const ticketsStore = useTicketsStore();
-const createNewTicket = () => ({
-  id: '',
-  name: '',
-  description: '',
-  isVip: false,
-  count: 0,
-  price: 0,
-  creator: 'admin'
-});
 
-let ticket = ref(createNewTicket());
+let ticket = reactive({} as CreateTicketDto);
 
-const addTicket = () => {
+const addTicket = async (e: Event) => {
+  const form = e.target as HTMLFormElement
+
   // Ensure that all fields are filled out
-  if (!ticket.value.name || !ticket.value.description || !ticket.value.count || !ticket.value.price) {
+  if (!ticket.name || !ticket.description || !ticket.count || !ticket.price) {
     alert('Please fill out all fields');
     return;
   }
-
-  ticket.value.id = Date.now().toString();
-  ticketsStore.addTicket({ ...ticket.value });
-  ticket.value = createNewTicket();
+  await createTicket(ticket)
+  form.reset()
 };
 </script>
