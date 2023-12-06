@@ -1,6 +1,6 @@
+import { getTickets } from '@/services/TicketService';
 import { defineStore } from 'pinia';
 import { Ticket as TicketType } from '../Type';
-import { getTickets } from '@/services/TicketService';
 
 export const useTicketsStore = defineStore({
   id: 'tickets',
