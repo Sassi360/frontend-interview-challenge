@@ -10,15 +10,17 @@
     <button v-if="allowDelete" @click="remove"
       class="inline-flex items-center text-sm font-semibold underline-offset-4 hover:underline text-red-600 hover:text-red-700">Delete
       Ticket</button>
+
+    <CartControl :ticket="ticket" v-if="showControls" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { Ticket } from '../Type';
-import { deleteTicket } from '../services/TicketService';
+import { Ticket } from '@/Type';
+import { deleteTicket } from '@/services/TicketService';
+import CartControl from './CartControl.vue';
 
-
-const props = defineProps<{ ticket: Ticket, allowDelete?: boolean }>();
+const props = defineProps<{ ticket: Ticket, allowDelete?: boolean, showControls?: boolean }>();
 const emit = defineEmits(['remove']);
 
 const remove = async () => {

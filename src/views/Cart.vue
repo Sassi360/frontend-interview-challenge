@@ -1,3 +1,14 @@
 <template>
-  <h1>Cart</h1>
+  <ListCart />
 </template>
+
+<script lang="ts">
+import { defineComponent } from 'vue';
+import ListCart from '@/features/ticket/components/ListCart.vue';
+
+export default defineComponent({
+  components: {
+    ListCart
+  }
+})
+</script>

@@ -3,8 +3,8 @@
 </template>
 
 <script lang="ts">
-import ListTicket from '@/features/ListTicket.vue';
 import { defineComponent } from 'vue';
+import ListTicket from '@/features/ticket/components/ListTicket.vue';
 
 export default defineComponent({
   components: {

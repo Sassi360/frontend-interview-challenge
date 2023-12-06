@@ -3,15 +3,15 @@
     <div v-if="loading">Loading...</div>
     <div v-else-if="tickets.length === 0 && !loading">No tickets available</div>
     <TicketCard v-else v-for="ticket in tickets" :key="ticket.id" :ticket="ticket" @remove="refresh"
-      :allow-delete="admin" />
+      :allow-delete="admin" :show-controls="!admin" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { Ticket } from '@/Type';
 import { defineProps, onMounted, ref } from 'vue';
-import { getTickets } from '../services/TicketService';
 import { default as TicketCard } from './Ticket.vue';
+import { getTickets } from '@/services/TicketService';
 
 const loading = ref(true);
 const tickets = ref([] as Ticket[]);
