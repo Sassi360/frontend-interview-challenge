@@ -7,6 +7,7 @@ export const useTicketsStore = defineStore({
   state: () => ({
     tickets: [] as TicketType[],
   }),
+  persist: true,
   actions: {
     async fetchTickets() {
       this.tickets = await getTickets();
@@ -16,6 +17,6 @@ export const useTicketsStore = defineStore({
     },
     deleteTicket(id: string) {
       this.tickets = this.tickets.filter(ticket => ticket.id !== id);
-    }
+    },
   }
 });
